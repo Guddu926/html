@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css//style.css">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="jewelleryForm">
+            <div class="form-step" id="step1">
+                <label for="occasion">What is the occasion for this jewellery?
+                    <span class="help-icon"
+                        data-note="This helps us tailor our recommendations to match the significance and style suitable for the event.">?</span>
+                </label>
+                <select id="occasion" name="occasion" required>
+                    <option value="">Select</option>
+                    <option value="Engagement">Engagement</option>
+                    <option value="Anniversary">Anniversary</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Daily-wear">Daily-wear</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" id="occasionOther" name="occasionOther" placeholder="Please specify"
+                    style="display:none;">
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+
+            <div class="form-step" id="step2" style="display:none;">
+                <label>Is this a gift or a personal purchase?
+                    <span class="help-icon"
+                        data-note="Understanding if the jewellery is for yourself or someone else helps us refine our suggestions based on typical gift preferences.">?</span>
+                </label>
+                <select id="purchaseType" name="purchaseType" required>
+                    <option value="">Select</option>
+                    <option value="Gift">Gift</option>
+                    <option value="Personal Purchase">Personal Purchase</option>
+                </select>
+                <button type="button" onclick="prevStep()">Back</button>
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+
+            <div class="form-step" id="step3" style="display:none;">
+                <label>Please select the gender
+                    <span class="help-icon"
+                        data-note="This allows us to recommend designs and styles that align with the typical preferences of the chosen gender.">?</span>
+                </label>
+                <div class="gender-options">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+                <button type="button" onclick="prevStep()">Back</button>
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+
+            <div class="form-step" id="step4" style="display:none;">
+                <label>What is the age group of the wearer?
+                    <span class="help-icon"
+                        data-note="Age can significantly influence jewellery style preferences, so this helps us make more suitable recommendations.">?</span>
+                </label>
+                <div class="age-group-options">
+                    <label><input type="radio" name="ageGroup" value="<18" required>
+                        <18< /label>
+                            <label><input type="radio" name="ageGroup" value="18-25"> 18-25</label>
+                            <label><input type="radio" name="ageGroup" value="26-35"> 26-35</label>
+                            <label><input type="radio" name="ageGroup" value="36-50"> 36-50</label>
+                            <label><input type="radio" name="ageGroup" value="51+"> 51+</label>
+                </div>
+                <button type="button" onclick="prevStep()">Back</button>
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+
+            <div class="form-step" id="step5" style="display:none;">
+                <label>Do you have any religious considerations for this jewellery? (Optional)
+                    <span class="help-icon"
+                        data-note="Some religious beliefs might influence jewellery design choices, like specific symbols or restrictions.">?</span>
+                </label>
+                <select id="religion" name="religion">
+                    <option value="">Select</option>
+                    <option value="Christianity">Christianity</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Hinduism">Hinduism</option>
+                    <option value="None">None</option>
+                </select>
+                <button type="button" onclick="prevStep()">Back</button>
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+
+            <div class="form-step" id="step6" style="display:none;">
+                <label>What type of jewellery are you interested in?
+                    <span class="help-icon"
+                        data-note="This helps us narrow down the product category to provide more relevant recommendations.">?</span>
+                </label>
+                <div class="jewellery-type-options">
+                    <label><input type="radio" name="jewelleryType" value="Rings" required> Rings</label>
+                    <label><input type="radio" name="jewelleryType" value="Necklaces"> Necklaces</label>
+                    <label><input type="radio" name="jewelleryType" value="Pendants"> Pendants</label>
+                    <label><input type="radio" name="jewelleryType" value="Bracelets"> Bracelets</label>
+                    <label><input type="radio" name="jewelleryType" value="Earrings"> Earrings</label>
+                </div>
+                <button type="button" onclick="prevStep()">Back</button>
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+
+            <div class="form-step" id="step7" style="display:none;">
+                <label>What is your budget for this jewellery?
+                    <span class="help-icon"
+                        data-note="Knowing your budget helps us suggest options that fit within your financial constraints.">?</span>
+                </label>
+                <div class="budget-options">
+                    <label><input type="radio" name="budget" value="<50" required>
+                        <$50< /label>
+                            <label><input type="radio" name="budget" value="50-100"> $50-$100</label>
+                            <label><input type="radio" name="budget" value="100-200"> $100-$200</label>
+                            <label><input type="radio" name="budget" value="200+"> $200+</label>
+                </div>
+                <button type="button" onclick="prevStep()">Back</button>
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+
+            <div class="form-step" id="step8" style="display:none;">
+                <label>Would you like to match your jewellery with an outfit?
+                    <span class="help-icon"
+                        data-note="Uploading an image of your outfit can help us recommend jewellery that complements your attire perfectly.">?</span>
+                </label>
+                <div class="outfit-options">
+                    <label><input type="radio" name="outfitMatch" value="Yes" onclick="showUpload()" required>
+                        Yes</label>
+                    <label><input type="radio" name="outfitMatch" value="No" onclick="hideUpload()"> No</label>
+                </div>
+                <div id="outfitUpload" style="display:none;">
+                    <label for="outfitImage">Upload an image of your outfit (Optional):</label>
+                    <input type="file" id="outfitImage" name="outfitImage" accept="image/*">
+                    <img id="outfitPreview" src="#" alt="Outfit Preview" style="display:none;">
+                </div>
+                <button type="button" onclick="prevStep()">Back</button>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
